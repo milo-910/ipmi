@@ -2,6 +2,8 @@ class Juego {
   constructor() {
     this.carriles = [150, 300, 450];
     this.personaje = new Personaje(100, 1, this.carriles);
+    let carrilAleatorio = floor(random(0, 3));
+    this.piedra = new Piedra(width, carrilAleatorio, this.carriles);
   }
 
   teclaPresionada(keyCode) {
@@ -16,10 +18,11 @@ class Juego {
     }
 
     this.personaje.dibujar();
-
+    this.piedra.dibujar();
   }
 
   actualizar() {
     this.personaje.mover();
-    }
+    this.piedra.mover();
   }
+}
